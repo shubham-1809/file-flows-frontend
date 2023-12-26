@@ -9,13 +9,15 @@ const progressBar = document.querySelector(".progress-bar");
 const status = document.querySelector(".status");
 
 const sharingContainer = document.querySelector(".sharing-container");
+const emailContainer = document.querySelector(".email-container");
+const buttonContainer = document.querySelector(".send-btn-container");
 const copyURLBtn = document.querySelector("#copyURLBtn");
 const fileURL = document.querySelector("#fileURL");
 const emailForm = document.querySelector("#emailForm");
 
 const toast = document.querySelector(".toast");
 
-const baseURL = "https://file-flows.onrender.com";
+const baseURL = "https://fileflows.onrender.com";
 const uploadURL = `${baseURL}/api/files`;
 const emailURL = `${baseURL}/api/files/send`;
 
@@ -128,7 +130,10 @@ const onFileUploadSuccess = (res) => {
 
   const { file: url } = JSON.parse(res);
   console.log(url);
+  
   sharingContainer.style.display = "block";
+  emailContainer.style.display = "block";
+  buttonContainer.style.display = "block";
   fileURL.value = url;
 };
 
@@ -145,8 +150,14 @@ emailForm.addEventListener("submit", (e) => {
     uuid: url.split("/").splice(-1, 1)[0],
     emailTo: emailForm.elements["to-email"].value,
     emailFrom: emailForm.elements["from-email"].value,
+    collegeName: emailForm.elements["college"].value,
+    studentName: emailForm.elements["studentName"].value,
+    rollNumber: emailForm.elements["rollNumber"].value,
+    branch: emailForm.elements["branch"].value,
+    section: emailForm.elements["section"].value,
+    projectType: emailForm.elements["projectType"].value,
   };
-  console.log(formData);
+  console.table(formData);
   fetch(emailURL, {
     method: "POST",
     headers: {
@@ -159,6 +170,8 @@ emailForm.addEventListener("submit", (e) => {
       if (data.success) {
         showToast("Email Sent");
         sharingContainer.style.display = "none"; // hide the box
+        emailContainer.style.display = "none"; // hide email container
+        buttonContainer.style.display = "none";
       }
     });
 });

@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InShare - File Sharing Made Easy</title>
+    <title>File Flows</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <img src="./logo.png" alt="Inshare logo" class="logo">
+    <img src="./file.png" alt="FileFlows logo" class="logo">
     <section class="upload-container">
         <form action="">
             <div class="drop-zone">
@@ -46,15 +46,69 @@
 
 
             <p class="email-info">Or Send via Email</p>
+
             <div class="email-container">
                 <form id="emailForm">
+        
                     <div class="filed">
-                        <label for="fromEmail">Your email</label>
+                        <label for="college">College Name:</label>
+                        <select id="college" name="college">
+                            <option value="ggits">GGITS</option>
+                            <option value="ggct">GGCT</option>
+                            <option value="srit">SRIT</option>
+                            <option value="global">Global</option>
+                            <option value="taxshilla">Taxshilla</option>
+                        </select>
+                    </div>
+        
+                    <div class="filed">
+                        <label for="studentName">Student Name:</label>
+                        <input type="text" id="studentName" name="studentName" required>
+                    </div>
+        
+                    <div class="filed">
+                        <label for="rollNumber">Roll Number:</label>
+                        <input type="text" id="rollNumber" name="rollNumber" pattern="[0-9A-Za-z]+"
+                            title="Alphanumeric value required" required>
+                    </div>
+        
+                    <div class="filed">
+                        <label for="branch">Branch:</label>
+                        <select id="branch" name="branch">
+                            <option value="CS">CS</option>
+                            <option value="EC">EC</option>
+                            <option value="IT">IT</option>
+                            <option value="ME">ME</option>
+                            <option value="CE">CE</option>
+                            <option value="EE">EE</option>
+                            <option value="EX">EX</option>
+                        </select>
+                    </div>
+        
+                    <div class="filed">
+                        <label for="section">Section:</label>
+                        <select id="section" name="section">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </div>
+        
+                    <div class="filed">
+                        <label for="projectType">Project Type:</label>
+                        <select id="projectType" name="projectType">
+                            <option value="major">Major</option>
+                            <option value="minor">Minor</option>
+                        </select>
+                    </div>
+        
+                    <div class="filed">
+                        <label for="fromEmail">Your email:</label>
                         <input type="email" autocomplete="email" required name="from-email" id="fromEmail">
                     </div>
-
+        
                     <div class="filed">
-                        <label for="toEmail">Receiver's email</label>
+                        <label for="toEmail">Receiver's email:</label>
                         <input type="email" required autocomplete="receiver" name="to-email" id="toEmail">
                     </div>
                     <div class="send-btn-container">
@@ -62,13 +116,14 @@
                     </div>
                 </form>
             </div>
+
         </div>
     </section>
+   
     <div class="image-vector"></div>
-    <div class="toast">Sample message</div>
-    <!-- github fork button -->
-    <a href="https://github.com/ShivamJoker/inshare" class="github-corner"
-        aria-label="View source on GitHub">
+    <div class="toast"></div>
+    <!-- github fork button 
+    <a href="https://github.com/ShivamJoker/inshare" class="github-corner" aria-label="View source on GitHub">
         <svg width="80" height="80" viewbox="0 0 250 250"
             style="fill:#131315c9; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
             <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -81,7 +136,7 @@
                 fill="currentColor" class="octo-body">
             </path>
         </svg>
-    </a>
+    </a>-->
     <script src="index.js"></script>
 </body>
 
